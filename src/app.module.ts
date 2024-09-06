@@ -10,6 +10,7 @@ import { ReportsModule } from './reports/reports.module';
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'db.sqlite',
+      entities: [],
     }),
     UsersModule,
     ReportsModule,
