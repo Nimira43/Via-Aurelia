@@ -6,8 +6,15 @@ content-type: application/json
   "password": "num1cat"
 }
 
-#GET http://localhost:3000/auth/15
+GET http://localhost:3000/auth/
 
-#GET http://localhost:3000/auth?email=leonardo@cat.com
+GET http://localhost:3000/auth?email=leonardo@cat.com
 
-#DELETE http://localhost:3000/auth/14
+DELETE http://localhost:3000/auth/13
+
+PATCH http://localhost:3000/auth/16
+content-type: application/json
+
+{ 
+  "email": "lenny@thebest.com"
+}
