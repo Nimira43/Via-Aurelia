@@ -6,7 +6,7 @@ content-type: application/json
   "password": "num1cat"
 }
 
-GET http://localhost:3000/auth/
+GET http://localhost:3000/auth/3232
 
 GET http://localhost:3000/auth?email=leonardo@cat.com
 
