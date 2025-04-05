@@ -9,5 +9,10 @@ import { map } from 'rxjs/operators'
 import { plainToClass } from 'class-transformer'
 
 export class SerializeInterceptor implements NestInterceptor {
-  
+  intercept(
+    context: ExecutionContext,
+    handler: CallHandler
+  ): Observable<any> {
+
+  }
 }
