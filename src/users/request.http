@@ -16,5 +16,5 @@ PATCH http://localhost:3000/auth/16
 content-type: application/json
 
 { 
-  "email": "lenny@thebest.com"
+  "password": "thebest1"
 }
