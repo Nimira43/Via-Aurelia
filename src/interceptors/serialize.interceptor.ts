@@ -7,3 +7,7 @@ import {
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { plainToClass } from 'class-transformer'
+
+export class SerializeInterceptor {
+  
+}
