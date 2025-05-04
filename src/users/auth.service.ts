@@ -15,9 +15,9 @@ export class AuthService {
     if (users.length) {
       throw new BadRequestException('Email in use')
     }
-    
-    const salt = randomBytes(8).toString('hex')
 
+    const salt = randomBytes(8).toString('hex')
+    const hash = await scrypt(password, salt, 32)
 
 
   }
