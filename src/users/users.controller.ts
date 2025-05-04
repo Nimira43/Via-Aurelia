@@ -19,7 +19,10 @@ import { AuthService } from './auth.service'
 @Controller('auth')
 @Serialize(UserDto)
 export class UsersController {
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    private authService: AuthService
+  ) { }
 
   @Post('/signup')
   createUser(@Body() body: CreateUserDto) {
