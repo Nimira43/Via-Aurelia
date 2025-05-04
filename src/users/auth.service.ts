@@ -1,7 +1,9 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { UsersService } from './users.service'
-import { randomBytes, scrypt } from 'crypto'
+import { randomBytes, scrypt as _script } from 'crypto'
 import { promisify } from 'util'
+
+const scrypt = promisify(_script)
 
 @Injectable()
 export class AuthService {
