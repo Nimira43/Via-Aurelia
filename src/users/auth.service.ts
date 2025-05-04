@@ -3,7 +3,7 @@ import { UsersService } from './users.service'
 import { randomBytes, scrypt as _script } from 'crypto'
 import { promisify } from 'util'
 
-const scrypt = promisify(_script)
+const scrypt = promisify(_script) 
 
 @Injectable()
 export class AuthService {
@@ -15,7 +15,8 @@ export class AuthService {
     if (users.length) {
       throw new BadRequestException('Email in use')
     }
-
+    
+    const salt = randomBytes(8).toString('hex')
 
 
 
@@ -24,5 +25,4 @@ export class AuthService {
   signin() {
 
   }
-
 }
