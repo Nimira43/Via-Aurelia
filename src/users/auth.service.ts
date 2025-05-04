@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { UsersService } from './users.service'
 import { randomBytes, scrypt } from 'crypto'
-
+import { promisify } from 'util'
 
 @Injectable()
 export class AuthService {
@@ -13,6 +13,7 @@ export class AuthService {
     if (users.length) {
       throw new BadRequestException('Email in use')
     }
+
 
 
 
