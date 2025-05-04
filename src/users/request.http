@@ -2,11 +2,11 @@ POST http://localhost:3000/auth/signup
 content-type: application/json
 
 {
-  "email": "user1@work.com",
-  "password": "pass1234"
+  "email": "user2@work.com",
+  "password": "pass1256"
 }
 
-GET http://localhost:3000/auth/3
+GET http://localhost:3000/auth/19
 
 GET http://localhost:3000/auth?email=leonardo@cat.com
 
