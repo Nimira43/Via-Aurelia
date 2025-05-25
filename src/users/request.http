@@ -1,9 +1,9 @@
-POST http://localhost:3000/auth/signup
+POST http://localhost:3000/auth/signin
 content-type: application/json
 
 {
-  "email": "user4@work.com",
-  "password": "pass4336"
+  "email": "user7@work.com",
+  "password": "pass4334"
 }
 
 GET http://localhost:3000/auth/19
