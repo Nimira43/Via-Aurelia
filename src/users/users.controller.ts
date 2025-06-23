@@ -8,6 +8,7 @@ import {
   Query,
   Delete,
   NotFoundException,
+  Session,
 } from '@nestjs/common'
 import { CreateUserDto } from './dtos/create-user.dto'
 import { UpdateUserDto } from './dtos/update-user.dto'
@@ -25,12 +26,18 @@ export class UsersController {
   ) { }
 
   @Post('/signup')
-  createUser(@Body() body: CreateUserDto) {
+  createUser(
+    @Body() body: CreateUserDto,
+    @Session() session: any
+  ) {
     return this.authService.signup(body.email, body.password)
   }
 
   @Post('/signin')
-  signin(@Body() body: CreateUserDto) {
+  signin(
+    @Body() body: CreateUserDto,
+    @Session() session: any
+  ) {
     return this.authService.signin(body.email, body.password)
   }
 
