@@ -16,6 +16,8 @@ content-type: application/json
 
 GET http://localhost:3000/auth/whoami
 
+POST http://localhost:3000/auth/signout
+
 GET http://localhost:3000/auth/19
 
 GET http://localhost:3000/auth?email=leonardo@cat.com
