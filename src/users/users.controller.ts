@@ -31,7 +31,9 @@ export class UsersController {
   }
 
   @Post('/signout')
-  
+  signOut(@Session() session: any) {
+    
+  }
 
   @Post('/signup')
   async createUser(
