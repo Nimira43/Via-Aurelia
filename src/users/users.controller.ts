@@ -32,7 +32,7 @@ export class UsersController {
 
   @Post('/signout')
   signOut(@Session() session: any) {
-    
+    session.userId = null
   }
 
   @Post('/signup')
