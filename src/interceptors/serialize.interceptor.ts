@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators'
 import { plainToClass } from 'class-transformer'
 
 interface ClassConstructor {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   new (...args: any[]): {}
 }
 
