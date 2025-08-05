@@ -30,12 +30,11 @@ export class UsersController {
   // whoAmI(@Session() session: any) {
   //   return this.usersService.findOne(session.userId)
   // }
-
-  // Temp code
-  // @Get('whoami')
-  // whoAmI(@CurrentUser() user: User) {
-  //   return user
-  // }
+                        
+  @Get('whoami')
+  whoAmI(@CurrentUser() user: string) {
+    return user
+  }
 
   @Post('/signout')
   signOut(@Session() session: any) {
