@@ -1,8 +1,8 @@
-.POST http://localhost:3000/auth/signup
+POST http://localhost:3000/auth/signup
 content-type: application/json
 
 {
-  "email": "newuser@new.com",
+  "email": "newuser2@new.com",
   "password": "password123"
 }
 
@@ -10,7 +10,7 @@ POST http://localhost:3000/auth/signin
 content-type: application/json
 
 {
-  "email": "newuser@new.com",
+  "email": "newuser2@new.com",
   "password": "password123"
 }
 
