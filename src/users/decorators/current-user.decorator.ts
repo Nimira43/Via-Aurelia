@@ -4,5 +4,7 @@ import {
 } from '@nestjs/common'
 
 export const CurrentUser = createParamDecorator(
-  (data: any, context: ExecutionContext) => {}
+  (data: any, context: ExecutionContext) => {
+    return 'hello'
+  }
 )
