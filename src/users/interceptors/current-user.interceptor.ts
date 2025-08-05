@@ -11,5 +11,7 @@ import { UsersService } from '../users.service'
 export class CurrentUserInterceptor implements NestInterceptor {
   constructor(private usersService: UsersService) {}
 
-  async intercept() {}
+  async intercept(context: ExecutionContext, handler: CallHandler) {
+    
+  }
 }
