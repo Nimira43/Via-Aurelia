@@ -5,12 +5,14 @@ import { UsersService } from './users.service'
 it('can create an instance of auth service', async () => {
   const fakeUsersService = {
     find: () => Promise.resolve([]),
-    create: (email: string, password: string) =>  Promise.resolve({
+    create: (email: string, password: string) => Promise.resolve({
       id: 1,
       email,
       password
     }) 
   }
+
+  const arr = await fakeUsersService.find()
 
   const module = await Test.createTestingModule({
     providers: [
