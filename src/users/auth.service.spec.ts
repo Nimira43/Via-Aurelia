@@ -13,7 +13,13 @@ it('can create an instance of auth service', async () => {
   }
 
   const module = await Test.createTestingModule({
-    providers: [AuthService],
+    providers: [
+      AuthService,
+      {
+        provide: UsersService,
+        useValue: fakeUsersService
+      }
+    ],
   }).compile()
 
   const service = module.get(AuthService)
