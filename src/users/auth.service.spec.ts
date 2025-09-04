@@ -3,6 +3,8 @@ import { AuthService } from './auth.service'
 import { UsersService } from './users.service'
 import { User } from './user.entity'
 
+let service: AuthService
+
 beforeEach( async () => {
   const fakeUsersService: Partial<UsersService> = {
     find: () => Promise.resolve([]),
@@ -23,7 +25,7 @@ beforeEach( async () => {
     ],
   }).compile()
 
-  const service = module.get(AuthService)
+  service = module.get(AuthService)
 })
 
 it('can create an instance of auth service', async () => {
