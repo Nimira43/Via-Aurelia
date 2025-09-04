@@ -3,7 +3,7 @@ import { AuthService } from './auth.service'
 import { UsersService } from './users.service'
 
 it('can create an instance of auth service', async () => {
-  const fakeUsersService = {
+  const fakeUsersService: UsersService = {
     find: () => Promise.resolve([]),
     create: (email: string, password: string) => Promise.resolve({
       id: 1,
@@ -12,15 +12,13 @@ it('can create an instance of auth service', async () => {
     }) 
   }
 
-  const arr = await fakeUsersService.find()
-
   const module = await Test.createTestingModule({
     providers: [
       AuthService,
       {
         provide: UsersService,
-        useValue: fakeUsersService
-      }
+        useValue: fakeUsersService,
+      },
     ],
   }).compile()
 
