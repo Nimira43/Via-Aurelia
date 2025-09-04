@@ -1,6 +1,7 @@
 import { Test } from '@nestjs/testing'
 import { AuthService } from './auth.service'
 import { UsersService } from './users.service'
+import { User } from './user.entity'
 
 it('can create an instance of auth service', async () => {
   const fakeUsersService: Partial<UsersService> = {
@@ -9,7 +10,7 @@ it('can create an instance of auth service', async () => {
       id: 1,
       email,
       password
-    }) 
+    } as User) 
   }
 
   const module = await Test.createTestingModule({
