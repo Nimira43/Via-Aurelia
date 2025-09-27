@@ -43,3 +43,15 @@ describe('AuthService', () => {
     expect(hash).toBeDefined()
   })
 })
+/*
+it('throws an error if the user signs up with an email that is in use', async () => {
+  fakeUsersService.find = () => 
+
+    Promise.resolve([{ id: 1, email: 'a', password: '1' } as User])
+  await expect(service.signup('asdf@asdf.com', 'asdf')).reject.toThrow(
+    BadRequestException
+  )
+})
+
+
+*/
