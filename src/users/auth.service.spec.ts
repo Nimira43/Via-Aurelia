@@ -6,9 +6,10 @@ import { BadRequestException } from '@nestjs/common'
 
 describe('AuthService', () => {
   let service: AuthService
+  let fakeUsersService: Partial<UsersService>
 
   beforeEach( async () => {
-    const fakeUsersService: Partial<UsersService> = {
+    fakeUsersService = {
       find: () => Promise.resolve([]),
       create: (email: string, password: string) => Promise.resolve({
         id: 1,
@@ -42,6 +43,8 @@ describe('AuthService', () => {
     expect(salt).toBeDefined()
     expect(hash).toBeDefined()
   })
+
+  
 })
 /*
 it('throws an error if the user signs up with an email that is in use', async () => {
