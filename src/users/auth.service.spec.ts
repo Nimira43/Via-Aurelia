@@ -51,6 +51,10 @@ describe('AuthService', () => {
     ) 
   })
 
-  it('throws if signin is called with an unused email', async (done) => {})
+  it('throws if signin is called with an unused email', async () => {
+    await expect (
+      service.signin('nonsense.com', 'password'),
+    ).rejects.toThrow(NotFoundException)
+  })
 
 })
