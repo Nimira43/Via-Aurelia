@@ -60,7 +60,7 @@ describe('AuthService', () => {
   it('throws if an invalid password is provided', async () => {
     fakeUsersService.find = () => 
       Promise.resolve([
-        { email: 'lenny@cat.com', password: 'thisiswrong'} as User, 
+        { email: 'lenny@cat.com', password: 'password'} as User, 
       ])
     await expect(
       service.signin('nonsense.com', 'passwodr'),
