@@ -62,5 +62,8 @@ describe('AuthService', () => {
       Promise.resolve([
         { email: 'lenny@cat.com', password: 'thisiswrong'} as User, 
       ])
+    await expect(
+      service.signin('nonsense.com', 'passwodr'),
+    ).rejects.toThrow(BadRequestException)
   })
 })
