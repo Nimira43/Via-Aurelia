@@ -57,5 +57,8 @@ describe('AuthService', () => {
     ).rejects.toThrow(NotFoundException)
   })
 
-  it('throws if an invalid password is provided', async () => {})
+  it('throws if an invalid password is provided', async () => {
+    fakeUsersService.find = () => 
+      Promise.resolve([])
+  })
 })
