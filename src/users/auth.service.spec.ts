@@ -84,16 +84,17 @@ describe('AuthService', () => {
   })
   
   it('returns a user if correct password is provided', async () => {
-    const salt = randomBytes(8).toString('hex')
-    const hash = (await scrypt('password', salt, 32)) as Buffer
-    const result = salt + '.' + hash.toString('hex')
+    // const salt = randomBytes(8).toString('hex')
+    // const hash = (await scrypt('password', salt, 32)) as Buffer
+    // const result = salt + '.' + hash.toString('hex')
 
-    fakeUsersService.find = () =>
-      Promise.resolve([
-        { email: 'lenny@cat.com', password: result } as User,
-      ])
+    // fakeUsersService.find = () =>
+    //   Promise.resolve([
+    //     { email: 'lenny@cat.com', password: result } as User,
+    //   ])
 
-    const user = await service.signin('lenny@cat.com', 'password')
+    await service.signup('newuser2@new.com', 'password')
+    const user = await service.signin('newuser2@new.com.com', 'password123')
     expect(user).toBeDefined()
   })
 
