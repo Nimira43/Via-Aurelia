@@ -13,6 +13,10 @@ describe('AuthService', () => {
   let fakeUsersService: Partial<UsersService>
 
   beforeEach( async () => {
+    const users: User[] = []
+
+
+
     fakeUsersService = {
       find: () => Promise.resolve([]),
       create: (email: string, password: string) => Promise.resolve({
