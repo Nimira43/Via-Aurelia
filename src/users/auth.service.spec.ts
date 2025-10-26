@@ -18,7 +18,10 @@ describe('AuthService', () => {
 
 
     fakeUsersService = {
-      find: () => Promise.resolve([]),
+      find: (email: string) => {
+        const filteredUsers = users.filter(user => user.email == email)
+        return Promise.resolve(filteredUsers)
+      },
       create: (email: string, password: string) => Promise.resolve({
         id: 1,
         email,
