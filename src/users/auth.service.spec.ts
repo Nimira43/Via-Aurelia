@@ -3,10 +3,6 @@ import { AuthService } from './auth.service'
 import { UsersService } from './users.service'
 import { User } from './user.entity'
 import { BadRequestException, NotFoundException } from '@nestjs/common'
-import { randomBytes, scrypt as _scrypt } from 'crypto'
-import { promisify } from 'util'
-
-const scrypt = promisify(_scrypt)
 
 describe('AuthService', () => {
   let service: AuthService
@@ -52,63 +48,37 @@ describe('AuthService', () => {
   })
 
   it('creates a new user with a salted and hashed password', async () => {
-    const user = await service.signup('lenny@cat.com', '12345678')
-    expect(user.password).not.toEqual('12345678')
+    const user = await service.signup('lenny@cat.com', 'password')
+    expect(user.password).not.toEqual('password')
 
     const [salt, hash] = user.password.split('.')
     expect(salt).toBeDefined()
     expect(hash).toBeDefined()
   })
 
-  // it('throws an error if the user signs up with an email that is in use', async () => {
-  //   fakeUsersService.find = () => Promise.resolve([{ id: 1, email: 'a', password: '1' } as User])
-  //   await expect(service.signup('lenny@cat.com', '12345678')).rejects.toThrow(
-  //     BadRequestException
-  //   ) 
-  // })
-
   it('throws an error if user signs up with email that is in use', async () => {
-    await service.signup('asdf@asdf.com', 'asdf')
-    await expect(service.signup('asdf@asdf.com', 'asdf')).rejects.toThrow(
+    await service.signup('bob@email.com', 'password123')
+    await expect(service.signup('bob@email.com', 'password123')).rejects.toThrow(
       BadRequestException,
     )
   })
 
-  // it('throws if signin is called with an unused email', async () => {
-  //   await expect (
-  //     service.signin('nonsense.com', 'password'),
-  //   ).rejects.toThrow(NotFoundException)
-  // })
-
   it('throws if signin is called with an unused email', async () => {
     await expect(
-      service.signin('asdflkj@asdlfkj.com', 'passdflkj'),
+      service.signin('nonsense@nonsense.com', 'wrongpassword'),
     ).rejects.toThrow(NotFoundException)
   })
-
+  
   it('throws if an invalid password is provided', async () => {
-    fakeUsersService.find = () => 
-      Promise.resolve([
-        { email: 'lenny@cat.com', password: 'password'} as User, 
-      ])
+    await service.signup('alice@user.com', 'password');
     await expect(
-      service.signin('nonsense.com', 'passwodr'),
+      service.signin('alice@user.com', 'nonsense'),
     ).rejects.toThrow(BadRequestException)
   })
-  
+
   it('returns a user if correct password is provided', async () => {
-    const salt = randomBytes(8).toString('hex')
-    const hash = (await scrypt('password', salt, 32)) as Buffer
-    const result = salt + '.' + hash.toString('hex')
-
-    // fakeUsersService.find = () =>
-    //   Promise.resolve([
-    //     { email: 'lenny@cat.com', password: result } as User,
-    //   ])
-
     await service.signup('newuser2@new.com', 'password')
-    const user = await service.signin('newuser2@new.com.com', result)
+    const user = await service.signin('newuser2@new.com', 'password')
     expect(user).toBeDefined()
   })
-
 })
