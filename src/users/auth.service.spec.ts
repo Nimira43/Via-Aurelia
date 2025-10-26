@@ -29,7 +29,7 @@ describe('AuthService', () => {
           email, 
           password
         } as User
-        users.push()
+        users.push(user)
         return Promise.resolve(user)
       } 
     }
