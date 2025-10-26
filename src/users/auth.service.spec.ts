@@ -12,21 +12,26 @@ describe('AuthService', () => {
   let service: AuthService
   let fakeUsersService: Partial<UsersService>
 
-  beforeEach( async () => {
+  beforeEach(async () => {
     const users: User[] = []
-
-
 
     fakeUsersService = {
       find: (email: string) => {
-        const filteredUsers = users.filter(user => user.email == email)
+        const filteredUsers = users.filter(user => user.email === email)
         return Promise.resolve(filteredUsers)
       },
-      create: (email: string, password: string) => Promise.resolve({
-        id: 1,
-        email,
-        password
-      } as User) 
+      create: (
+        email: string, 
+        password: string
+      ) => {
+        const user = {
+          id: Math.floor(Math.random() * 999999), 
+          email, 
+          password
+        } as User
+        users.push()
+        return Promise.resolve(user)
+      } 
     }
 
     const module = await Test.createTestingModule({
