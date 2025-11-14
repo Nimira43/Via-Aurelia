@@ -16,7 +16,8 @@ describe('UsersController', () => {
     }
 
     fakeAuthService = {
-
+      signup: () => {}
+      signin: () => {}
     }
 
     const module: TestingModule = await Test.createTestingModule({
