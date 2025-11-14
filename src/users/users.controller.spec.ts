@@ -12,7 +12,8 @@ describe('UsersController', () => {
   
   beforeEach(async () => {
     fakeUsersService = {
-
+      findOne: () => {}
+      find: () => {}
     }
 
     fakeAuthService = {
