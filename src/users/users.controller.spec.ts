@@ -41,6 +41,10 @@ describe('UsersController', () => {
         { 
           provide: UsersService,
           useValue: fakeUsersService
+        },
+        {
+          provide: AuthService,
+          useValue: fakeAuthService
         }
       ]
     }).compile()
