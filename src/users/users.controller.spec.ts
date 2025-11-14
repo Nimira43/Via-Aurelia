@@ -9,7 +9,6 @@ describe('UsersController', () => {
   let fakeUsersService: Partial<UsersService>
   let fakeAuthService: Partial<AuthService>
 
-  
   beforeEach(async () => {
     fakeUsersService = {
       findOne: (id: number) => {
@@ -27,17 +26,23 @@ describe('UsersController', () => {
           password: 'password'  
         } as User])
       },
-      remove: () => {},
-      update: () => {},
+      // remove: () => {},
+      // update: () => {},
     }
 
     fakeAuthService = {
-      signup: () => {},
-      signin: () => {},
+      // signup: () => {},
+      // signin: () => {},
     }
 
     const module: TestingModule = await Test.createTestingModule({
       controllers: [UsersController],
+      providers: [
+        { 
+          provide: UsersService,
+          useValue: fakeUsersService
+        }
+      ]
     }).compile()
 
     controller = module.get<UsersController>(UsersController)
