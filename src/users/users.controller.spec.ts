@@ -18,16 +18,22 @@ describe('UsersController', () => {
           email: 'test@test.com', 
           password: 'password'
         } as User)
-      }
-      
-      find: () => {}
-      remove: () => {}
-      update: () => {}
+      },
+
+      find: (email: string) => {
+        return Promise.resolve([{
+          id: 1,
+          email,
+          password: 'password'  
+        } as User])
+      },
+      remove: () => {},
+      update: () => {},
     }
 
     fakeAuthService = {
-      signup: () => {}
-      signin: () => {}
+      signup: () => {},
+      signin: () => {},
     }
 
     const module: TestingModule = await Test.createTestingModule({
