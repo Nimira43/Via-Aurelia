@@ -11,6 +11,14 @@ describe('UsersController', () => {
 
   
   beforeEach(async () => {
+    fakeUsersService = {
+
+    }
+
+    fakeAuthService = {
+
+    }
+
     const module: TestingModule = await Test.createTestingModule({
       controllers: [UsersController],
     }).compile()
