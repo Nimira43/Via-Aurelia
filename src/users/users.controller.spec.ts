@@ -19,6 +19,7 @@ describe('UsersController', () => {
           password: 'password'
         } as User)
       }
+      
       find: () => {}
       remove: () => {}
       update: () => {}
