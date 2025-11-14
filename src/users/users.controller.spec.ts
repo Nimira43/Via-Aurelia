@@ -12,8 +12,16 @@ describe('UsersController', () => {
   
   beforeEach(async () => {
     fakeUsersService = {
-      findOne: () => {}
+      findOne: (id: number) => {
+        return Promise.resolve({ 
+          id, 
+          email: 'test@test.com', 
+          password: 'password'
+        } as User)
+      }
       find: () => {}
+      remove: () => {}
+      update: () => {}
     }
 
     fakeAuthService = {
