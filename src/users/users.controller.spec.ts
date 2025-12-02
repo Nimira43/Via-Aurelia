@@ -81,4 +81,11 @@ describe('UsersController', () => {
     expect(user.id).toEqual(1)
     expect(session.userId).toEqual(1)
   })
+
+  it('findAllUsers returns a list of users with the given email', async () => {
+    const users = await controller.findAllUsers('test@test.com')
+    expect(users.length).toBe(1);
+    expect(users[0].email).toEqual('test@test.com')
+  })
+
 })
