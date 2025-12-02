@@ -67,12 +67,4 @@ describe('UsersController', () => {
     expect(user).toBeDefined()
   })
 
-  it('findUser throws an error if user with given id is not found', async () => {
-    fakeUsersService.findOne = () => null
-    try {
-      
-    } catch (await) {
-      
-    }
-  })
 })
