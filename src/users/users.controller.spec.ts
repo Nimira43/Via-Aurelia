@@ -69,5 +69,7 @@ describe('UsersController', () => {
     expect(user).toBeDefined()
   })
 
-
+  it('signin updates session object and returns user', async () => {
+    
+  })
 })
