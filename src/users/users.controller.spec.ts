@@ -33,7 +33,9 @@ describe('UsersController', () => {
 
     fakeAuthService = {
       // signup: () => {},
-      // signin: () => {},
+      signin: (email: string, password: string) => {
+        return Promise.resolve( {id: 1, email, password } as User) 
+      },
     }
 
     const module: TestingModule = await Test.createTestingModule({
@@ -66,5 +68,6 @@ describe('UsersController', () => {
     const user = await controller.findUser('1')
     expect(user).toBeDefined()
   })
+
 
 })
