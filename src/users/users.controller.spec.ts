@@ -32,7 +32,9 @@ describe('UsersController', () => {
     }
 
     fakeAuthService = {
-      // signup: () => {},
+      signup: (email: string, password: string) => {
+        return Promise.resolve({ id: 2, email, password } as User)
+      },
       signin: (email: string, password: string) => {
         return Promise.resolve( {id: 1, email, password } as User) 
       },
