@@ -70,6 +70,13 @@ describe('UsersController', () => {
   })
 
   it('signin updates session object and returns user', async () => {
-    
+    const session = {}
+    const user = await controller.signin(
+      {
+        email: 'test@test.com',
+        password: 'password'
+      },
+      session
+    )
   })
 })
