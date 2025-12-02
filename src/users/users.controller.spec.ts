@@ -88,4 +88,10 @@ describe('UsersController', () => {
     expect(users[0].email).toEqual('test@test.com')
   })
 
+  it('signOut clears the session userId', () => {
+    const session = { userId: 1 }
+    controller.signOut(session)
+    expect(session.userId).toBeNull()
+  })
+
 })
