@@ -97,9 +97,9 @@ describe('UsersController', () => {
   })
 
   it('signup creates a user and stores session userId', async () => {
-  const session = { userId: -10}
-  const user = await controller.createUser({ email: 'new@test.com', password: 'pw' }, session)
-  expect(user.id).toEqual(2)
-  expect(session.userId).toEqual(2)
-})
+    const session = { userId: -10}
+    const user = await controller.createUser({ email: 'new@test.com', password: 'pw' }, session)
+    expect(user.id).toEqual(2)
+    expect(session.userId).toEqual(2)
+  })
 })
