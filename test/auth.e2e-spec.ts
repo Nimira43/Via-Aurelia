@@ -3,7 +3,7 @@ import { INestApplication } from '@nestjs/common'
 import * as request from 'supertest'
 import { AppModule } from './../src/app.module'
 
-describe('AppController (e2e)', () => {
+describe('Authentication System', () => {
   let app: INestApplication
 
   beforeEach(async () => {
@@ -15,7 +15,7 @@ describe('AppController (e2e)', () => {
     await app.init()
   });
 
-  it('/ (GET)', () => {
+  it('handles a signup request', () => {
     return request(app.getHttpServer())
       .get('/')
       .expect(200)
